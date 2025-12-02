@@ -5,17 +5,21 @@ import (
 	"github.com/gofiber/fiber/v2"
 )
 
-func SetupRoutes(app *fiber.App) {
-	// Health Endpoints
-	app.Get("/livez", handlers.Liveness)
-	app.Get("/readyz", handlers.Readiness)
+const (
+	tokenExchangeEndpoint = "/token/exchange"
+	jwksEndpoint          = "/.well-known/jwks.json"
+	livenessEndpoint      = "/livez"
+	readinessEndpoint     = "/readyz"
+)
 
-	// JWKS Endpoint
-	app.Get("/.well-known/jwks.json", handlers.GetJWKS)
+func SetupRoutes(app *fiber.App) {
+	app.Get(livenessEndpoint, handlers.Liveness)
+	app.Get(readinessEndpoint, handlers.Readiness)
+
+	app.Get(jwksEndpoint, handlers.GetJWKS)
 
 	// API Version 1
 	v1 := app.Group("/v1")
 
-	// Token Exchange Endpoint
-	v1.Post("/token/exchange", handlers.ExchangeToken)
+	v1.Post(tokenExchangeEndpoint, handlers.ExchangeToken)
 }
