@@ -1,0 +1,37 @@
+# Binaries for programs and plugins
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+/bin
+
+# Test binary, built with `go test -c`
+*.test
+
+# Tooling output
+*.out
+
+# Dependency directories (remove the comment below to include it)
+# vendor/
+
+# VS Code
+.vscode/
+
+# MAC
+.DS_Store
+
+# ZIP files
+*.zip
+cmd/*.zip
+
+# Environment variables
+config/.env
+
+# csv files
+examples/*.csv
+*.csv
+
+#
+*.env
+*.json
