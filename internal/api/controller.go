@@ -11,10 +11,10 @@ import (
 
 type Controller struct {
 	server *fiber.App
-	sts    core.SecurityTokenService
+	sts    core.TokenExchanger
 }
 
-func NewController(server *fiber.App, sts core.SecurityTokenService) *Controller {
+func NewController(server *fiber.App, sts core.TokenExchanger) *Controller {
 
 	return &Controller{server: server, sts: sts}
 }

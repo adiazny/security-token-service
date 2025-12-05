@@ -10,6 +10,13 @@ type Subject struct {
 
 type Token struct{}
 
-type SecurityTokenService interface {
+type TokenExchanger interface {
 	Exchange(subject Subject) (Token, error)
+}
+
+type TokenService struct {
+}
+
+func NewTokenService() *TokenService {
+	return &TokenService{}
 }
