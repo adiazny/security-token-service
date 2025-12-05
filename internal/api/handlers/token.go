@@ -81,7 +81,6 @@ func ExchangeToken(c *fiber.Ctx) error {
 	}
 
 	// TODO:
-	// validate the request
 	// wire up the exchanger
 
 	return c.Status(fiber.StatusOK).JSON(fiber.Map{
