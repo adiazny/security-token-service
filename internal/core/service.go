@@ -4,14 +4,15 @@ package core
 	Ports
 */
 
-type Subject struct {
-	Token string
+type TokenRequest struct {
+	SubjectToken     string
+	SubjectTokenType string
 }
 
-type Token struct{}
+type TokenResponse struct{}
 
 type TokenExchanger interface {
-	Exchange(subject Subject) (Token, error)
+	Exchange(tokenRequest TokenRequest) (TokenResponse, error)
 }
 
 type TokenService struct {
